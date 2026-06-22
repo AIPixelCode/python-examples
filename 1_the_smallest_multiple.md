@@ -1,76 +1,52 @@
 # Smallest Multiple (Modular Condition)
 
-## 📌 Problem Statement
+## Description
 
-Given two positive integers `a` and `b`, the goal is to find the smallest multiple of `b` such that when it is divided by `a`, the remainder lies within the interval:
+Given two integers `a` and `b`, this program finds the smallest multiple of `b` such that:
 
-```
-[0, a/2]
-```
-
-In other words, we search for the smallest value of `k * b` such that:
-
-```
+```id="q8p2vn"
 (k * b) % a ≤ a / 2
 ```
 
 ---
 
-## 💡 Idea
+## Idea
 
-We generate multiples of `b` incrementally and check their remainder when divided by `a`.
-The first value that satisfies the condition is returned as the answer.
-
----
-
-## ⚙️ Algorithm
-
-1. Start with `k = 1`
-2. Compute `remainder = (k * b) % a`
-3. While `remainder > a / 2`, increment `k`
-4. Return `k * b`
+We iterate over multiples of `b` and check their remainder modulo `a` until the condition is satisfied.
 
 ---
 
-## 🧪 Example
+## Example
 
-### Input
+**Input:**
 
-```
-a = 8
-b = 7
-```
-
-### Allowed remainder range
-
-```
-[0, 4]
+```id="w1k9zp"
+a = 8, b = 7
 ```
 
-### Step-by-step
+**Process:**
 
-```
-1 × 7 = 7   → 7 % 8 = 7   (not valid)
-2 × 7 = 14  → 14 % 8 = 6  (not valid)
-3 × 7 = 21  → 21 % 8 = 5  (not valid)
-4 × 7 = 28  → 28 % 8 = 4  (valid)
+```id="c3m8fd"
+7 % 8 = 7   → invalid  
+14 % 8 = 6  → invalid  
+21 % 8 = 5  → invalid  
+28 % 8 = 4  → valid
 ```
 
-### Output
+**Output:**
 
-```
+```id="x7n2aa"
 28
 ```
 
 ---
 
-## 🧾 Implementation (Python)
+## Code
 
-```python
+```python id="p0k2ld"
 a, b = map(int, input().split())
 
 k = 1
-
 while (k * b) % a > a / 2:
     k += 1
 
@@ -79,13 +55,4 @@ print(k * b)
 
 ---
 
-## 📊 Complexity
-
-* Time Complexity: `O(k)` (depends on first valid solution)
-* Space Complexity: `O(1)`
-
----
-
-## 👤 Author
-
-**AiPixelCode**
+#### Author: AiPixelCode
