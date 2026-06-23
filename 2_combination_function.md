@@ -2,41 +2,31 @@
 
 ## Description
 
-This program implements a function comb(n, k) that computes the binomial coefficient:
+This program implements a function for calculating the binomial coefficient, commonly known as a combination.
 
+The function returns the number of ways to choose `k` items from a set of `n` items without considering the order of selection.
+
+## How It Works
+
+Instead of computing factorials directly, the function uses an iterative multiplicative approach to calculate the result efficiently.
+
+To reduce the number of iterations, it takes advantage of the symmetry property of combinations:
+
+```text
+C(n, k) = C(n, n - k)
 ```
-C(n, k) = n! / (k! * (n - k)!)
-```
 
----
-
-## Idea
-
-We compute the combination efficiently without calculating full factorials, using an iterative multiplicative approach.
-
----
+The function also handles invalid cases by returning `0` when `k` is negative or greater than `n`.
 
 ## Example
 
-**Input:**
+For `n = 5` and `k = 3`:
 
-```
-n = 5, k = 3
-```
-
-**Process:**
-
-```
-C(5,3) = 5! / (3! * 2!) = 10
+```text
+C(5, 3) = 10
 ```
 
-**Output:**
-
-```
-10
-```
-
----
+This means there are 10 different ways to choose 3 items from a set of 5 items.
 
 ## Code
 
@@ -52,4 +42,4 @@ def comb(n, k):
 
 ---
 
-#### Author: AiPixelCode
+**Author:** AiPixelCode
