@@ -20,13 +20,13 @@ We iterate over multiples of `b` and check their remainder modulo `a` until the 
 
 **Input:**
 
-```id="w1k9zp"
+```
 a = 8, b = 7
 ```
 
 **Process:**
 
-```id="c3m8fd"
+```
 7 % 8 = 7   → invalid  
 14 % 8 = 6  → invalid  
 21 % 8 = 5  → invalid  
@@ -35,7 +35,7 @@ a = 8, b = 7
 
 **Output:**
 
-```id="x7n2aa"
+```
 28
 ```
 
@@ -43,7 +43,7 @@ a = 8, b = 7
 
 ## Code
 
-```python id="p0k2ld"
+```python
 a, b = map(int, input().split())
 
 k = 1
