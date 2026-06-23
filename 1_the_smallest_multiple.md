@@ -1,45 +1,35 @@
-# Smallest Multiple (Modular Condition)
+# Smallest Multiple Satisfying a Modular Condition
 
 ## Description
 
-Given two integers `a` and `b`, this program finds the smallest multiple of `b` such that:
+This program finds the smallest multiple of `b` whose remainder when divided by `a` is less than or equal to half of `a`.
 
+In other words, it searches for the smallest value of `k × b` that satisfies the following condition:
+
+```text
+(k × b) % a ≤ a / 2
 ```
-(k * b) % a ≤ a / 2
-```
 
----
+## How It Works
 
-## Idea
-
-We iterate over multiples of `b` and check their remainder modulo `a` until the condition is satisfied.
-
----
+The program starts with the first multiple of `b` and checks whether the condition is satisfied. If not, it continues to the next multiple and repeats the process until a valid value is found.
 
 ## Example
 
-**Input:**
+For `a = 8` and `b = 7`:
 
-```
-a = 8, b = 7
-```
-
-**Process:**
-
-```
-7 % 8 = 7   → invalid  
-14 % 8 = 6  → invalid  
-21 % 8 = 5  → invalid  
-28 % 8 = 4  → valid
+```text
+7 % 8 = 7
+14 % 8 = 6
+21 % 8 = 5
+28 % 8 = 4
 ```
 
-**Output:**
+Since `4 ≤ 4`, the first valid multiple is:
 
-```
+```text
 28
 ```
-
----
 
 ## Code
 
@@ -55,4 +45,4 @@ print(k * b)
 
 ---
 
-#### Author: AiPixelCode
+**Author:** AiPixelCode
