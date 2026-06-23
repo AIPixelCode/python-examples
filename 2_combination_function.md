@@ -1,27 +1,44 @@
-# Combination function
+# Combination Function
 
----
-## Question:
-___The goal is implement the function "comb". 
-This function takes two integer n and k as input 
-and return the value of the combination 
-"k choose n" as its output.___
+## Description
 
->_comb(n,k) = n! / (k! * (n-k)!)_
+This program implements a function comb(n, k) that computes the binomial coefficient:
 
----
-## Example:
-__n = 5__
-
-__k = 3__
-
-_comb(5,3) = 5! / (3! * (5-3)!) = 10_
-
->___Output: 10___
+```
+C(n, k) = n! / (k! * (n - k)!)
+```
 
 ---
 
-## Python code:
+## Idea
+
+We compute the combination efficiently without calculating full factorials, using an iterative multiplicative approach.
+
+---
+
+## Example
+
+**Input:**
+
+```
+n = 5, k = 3
+```
+
+**Process:**
+
+```
+C(5,3) = 5! / (3! * 2!) = 10
+```
+
+**Output:**
+
+```
+10
+```
+
+---
+
+## Code
 
 ```python
 def comb(n, k):
@@ -32,6 +49,7 @@ def comb(n, k):
         result = result * (n - i) // (i + 1)
     return result
 ```
+
 ---
 
-#### Written by: ___AiPixelCode___
+#### Author: AiPixelCode
