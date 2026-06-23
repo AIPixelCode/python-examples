@@ -4,7 +4,7 @@
 
 Given two integers `a` and `b`, this program finds the smallest multiple of `b` such that:
 
-```id="q8p2vn"
+```
 (k * b) % a ≤ a / 2
 ```
 
