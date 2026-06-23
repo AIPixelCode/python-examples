@@ -1,32 +1,51 @@
-# Data validation utility
+# Data Validation Utility
 
----
-## Description:
-___This code is used to validate the correct format of
-emails and mobile phone numbers. Its purpose is to ensure
-that the data entered by the user follows standard patterns.___
+## Description
 
-1. ___Email Validation (validate_email)___
+This program provides two utility functions for validating email addresses and mobile phone numbers using regular expressions.
 
-This function checks if the input email strictly follows the 
-username@domain.tld pattern. The applied rules are:
-- Username: Can include English letters, numbers, dots (.), and underscores (_).
-- Domain: Must consist only of English letters and numbers.
-- TLD (Top-Level Domain): Must be exactly 3 English letters (e.g., com or net).
+The functions check whether the provided input matches predefined patterns and return a boolean result indicating whether the format is valid.
 
-2. ___Phone Number Validation (validate_phone)___
+## How It Works
 
-This function identifies and validates mobile numbers in the 
-following three standard formats:
+### Email Validation
 
-- Local Format: 11 digits starting with 09 (e.g., 09123456789).
-- International (+) Format: 13 characters starting with +989 (e.g., +989123456789).
-- International (00) Format: 14 digits starting with 00989 (e.g., 00989123456789).
+The `validate_email()` function verifies that an email address follows a specific format:
 
-> **Output:** Both functions return True if the format is correct, and False otherwise.
+```text
+username@domain.tld
+```
 
----
-## Python code:
+The validation rules are:
+
+* The username may contain letters, numbers, dots (`.`), and underscores (`_`).
+* The domain may contain only letters and numbers.
+* The top-level domain (TLD) must consist of exactly three letters.
+
+### Phone Number Validation
+
+The `validate_phone()` function validates mobile phone numbers in three supported formats:
+
+```text
+09123456789
++989123456789
+00989123456789
+```
+
+The validation pattern ensures that all accepted numbers represent the same mobile number structure while allowing different local and international prefixes.
+
+## Example
+
+```text
+validate_email("sample@school.edu")  → True
+validate_email("invalid@invalid")    → False
+
+validate_phone("09215546321")        → True
+validate_phone("093311111111")       → False
+```
+
+## Code
+
 ```python
 import re
 
@@ -38,13 +57,5 @@ def validate_phone(number):
 ```
 
 ---
-## Test:
-```python
-print(validate_email('sample@school.edu'))  # True
-print(validate_email('invalid@invalid'))    # False
-print(validate_phone('09215546321'))        # True
-print(validate_phone('093311111111'))       # False
-```
 
----
-#### Written by: ___AiPixelCode___
+**Author:** AiPixelCode
