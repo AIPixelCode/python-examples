@@ -43,13 +43,10 @@ The function returns:
 def count_executable_lines(path: str) -> int:
     with open(path, "r") as f:
         result = 0
-
         for line in f:
             line = line.strip()
-
             if line and not line.startswith("#"):
                 result += 1
-
         return result
 ```
 
