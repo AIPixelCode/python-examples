@@ -1,0 +1,58 @@
+# Count Executable Lines in a Python File
+
+## Description
+
+This program counts the number of executable lines in a Python source file.
+
+A line is considered executable if it is neither empty nor a comment. Empty lines and lines whose first non-whitespace character is `#` are ignored.
+
+## How It Works
+
+The function opens the specified Python file and processes it line by line.
+
+For each line:
+
+* Leading and trailing whitespace is removed.
+* Empty lines are skipped.
+* Lines beginning with `#` after removing whitespace are treated as comments and ignored.
+* All remaining lines are counted as executable statements.
+
+The function finally returns the total number of executable lines as an integer.
+
+## Example
+
+Given the following Python file:
+
+```python
+a = input()
+
+b = int(a)
+print(b * b, a + a)
+# This is a comment line.
+```
+
+The function returns:
+
+```text
+3
+```
+
+## Code
+
+```python
+def count_executable_lines(path: str) -> int:
+    with open(path, "r") as f:
+        result = 0
+
+        for line in f:
+            line = line.strip()
+
+            if line and not line.startswith("#"):
+                result += 1
+
+        return result
+```
+
+---
+
+**Author:** AiPixelCode
